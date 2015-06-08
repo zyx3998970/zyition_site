@@ -48,7 +48,10 @@ def main():
     app = make_app()
     server = tornado.httpserver.HTTPServer(app)
     server.bind(8888)
-    server.start(0)  # forks one process per cpu
+    if app.settings.get('debug'):
+        server.start() # if debug, does not use multi-process
+    else:
+        server.start(0)  # forks one process per cpu
     IOLoop.current().start()
 
 
