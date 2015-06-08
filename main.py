@@ -36,6 +36,7 @@ class IndexHandler(RequestHandler):
 def make_app():
     settings = {
         "template_path": location('templates'),
+        "static_path": location('static'),
         "compress_response": True,
         "default_handler_class": PageNotFoundHandler,
     }
