@@ -5,10 +5,14 @@
   {% end %}
   <link rel="shortcut icon" href="/static/favicon.ico" />
   {% block css %}
-    <style>h1 {text-align: center;}</style>
+    <link rel="stylesheet" href="/static/css/base.css" />
   {% end %}
 </head>
 <body>
+  <ul class="nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/lottery/double-color-ball/">Double Color Ball</a></li>
+  </ul>
   {% block content %}{% end %}
   <script>
     // Facebook SDK.

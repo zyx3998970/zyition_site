@@ -1,0 +1,11 @@
+h1, h2 {text-align: center;}
+.nav li {display: inline;}
+.nav li a {text-decoration: none; color: #123434;}
+.nav li a:hover {color: #229A9A;}
+.nav li:not(:last-child):after {content: "|"; padding-left: 2px;}
+
+.double-color-ball {text-align: center;}
+.double-color-ball li {display: inline; border: dotted 1px #111; padding: 2px; }
+.double-color-ball {font-size: 24px;}
+.red-ball {color: red;}
+.blue-ball {color: blue;}

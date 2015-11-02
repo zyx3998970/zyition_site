@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Double Color Ball</h1>
+  <h2><a href=".">Try Another!</a></h2>
+  <ul class="double-color-ball">
+    {% for red_ball in red_balls %}
+      <li class="red-ball">{{ red_ball }}</li>
+    {% end %}
+    <li class="blue-ball">{{ blue_ball }}</li>
+  </ul>
+{% end %}
