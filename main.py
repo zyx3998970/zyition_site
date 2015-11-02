@@ -1,5 +1,6 @@
 import os
 import re
+import random
 import tornado.httpserver
 from tornado.ioloop import IOLoop
 from tornado.web import (RequestHandler as OriginalRequestHandler,
@@ -33,6 +34,18 @@ class IndexHandler(RequestHandler):
         self.render("index.html")
 
 
+class LotteryHandler(RequestHandler):
+    RED_BALL_RANGE = tuple(range(1, 34))
+    RED_BALL_COUNT = 6
+    BLUE_BALL_RANGE = tuple(range(1, 17))
+
+    def get(self):
+        red_balls = sorted(random.sample(self.RED_BALL_RANGE, self.RED_BALL_COUNT))
+        blue_ball = random.choice(self.BLUE_BALL_RANGE)
+        context = dict(red_balls=red_balls, blue_ball=blue_ball)
+        self.render("lottery.html", **context)
+
+
 def make_app():
     settings = {
         "template_path": location('templates'),
@@ -43,6 +56,7 @@ def make_app():
 
     return Application([
         url(r"/", IndexHandler),
+        url(r"/lottery/double-color-ball/", LotteryHandler),
         ], **settings)
 
 def main():
