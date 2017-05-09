@@ -1,10 +1,11 @@
 import os
-import re
 import random
+import re
+
 import tornado.httpserver
 from tornado.ioloop import IOLoop
-from tornado.web import (RequestHandler as OriginalRequestHandler,
-    Application, url)
+from tornado.web import RequestHandler as OriginalRequestHandler
+from tornado.web import Application, url
 
 location = lambda x: os.path.join(
     os.path.dirname(os.path.realpath(__file__)), x)
